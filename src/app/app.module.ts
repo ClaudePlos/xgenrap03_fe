@@ -12,7 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReportsComponent } from './reports/reports-list/reports.component';
-import { ReportsDetailsComponent } from './reports/reports-details/reports-details.component';
+import { ShowReportsDetailsComponent } from './reports/show-reports-details/show-reports-details.component';
 
 import { MatTableModule, MatMenuModule, MatIconModule, MatDialogModule, MatInputModule, MatSortModule } from '@angular/material';
 
@@ -29,7 +29,7 @@ import {ReportEffects} from "./reports/store/effect";
     SignupComponent,
     UserProfileComponent,
     ReportsComponent,
-    ReportsDetailsComponent
+    ShowReportsDetailsComponent
   ],
   imports: [
     BrowserModule,

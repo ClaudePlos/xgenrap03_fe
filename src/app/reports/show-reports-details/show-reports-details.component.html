@@ -1,0 +1,28 @@
+<div *ngIf="!loading">
+
+    <!-- <div *ngIf="report">
+        <app-breadcrumb [menu]="[{title: 'Przypisane do mnie', href: '/tenders/assignedtome'}, {title: report.id}]"
+                        [location]="'Podgląd'"></app-breadcrumb>
+      </div> -->
+
+    <table>
+        <caption>Przetarg</caption>
+        <thead>
+        <tr>
+          <th scope="col">NUMER</th>
+          <th scope="col">NAME</th>
+          <th scope="col">DESC</th>
+          <th scope="col">SQL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td data-label="NUMER">{{report.id}}</td>
+          <td data-label="NAME">{{report.rapName}}</td>
+          <td data-label="DESC">{{report.rapDesc}}</td>
+          <td data-label="SQL">{{report.rapSql}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+</div>

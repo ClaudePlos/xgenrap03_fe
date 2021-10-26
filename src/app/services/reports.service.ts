@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../shared/user';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { GetReportsResponse } from "./response/get-reports-response";
+import { GetReportsResponse, GetReportResponse } from "./response/_index";
 import { Report } from '../models/report.model';
 
 @Injectable({
@@ -46,6 +46,11 @@ export class ReportsService {
     deleteReport(reportId): Observable<GetReportsResponse> {
       const url = `${this.endpoint}/reports/delete//${reportId}`;
       return this.httpClient.get<GetReportsResponse>(url);
+    }
+
+    getReport(id: string): Observable<GetReportResponse> {
+      const url = `${this.endpoint}/reports/${id}`;
+      return this.httpClient.get<GetReportResponse>(url);
     }
 
 

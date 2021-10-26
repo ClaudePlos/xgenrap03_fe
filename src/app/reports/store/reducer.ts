@@ -43,6 +43,17 @@ const reducer = createReducer(
     return {...state, loading: payload.isLoading};
     }),
 
+    //
+    on(ReportsAction.GetReport, (state: ReportState, {payload}) => {
+    return {...state, loading: payload.isLoading};
+    }),
+    on(ReportsAction.GetReportSuccess, (state: ReportState, {payload}) => {
+    return {...state, loading: payload.isLoading, report: payload.report};
+    }),
+    on(ReportsAction.GetReportFailure, (state: ReportState, {payload}) => {
+    return {...state, loading: payload.isLoading};
+    }),
+
 );
 
 export function ReportReducer(state: ReportState | undefined, action: Action): ReportState {

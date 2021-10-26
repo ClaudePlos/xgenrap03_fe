@@ -6,6 +6,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export interface ReportState {
     loading: boolean,
     reports: Report[],
+    report: Report
     isLogged: boolean,
     error: HttpErrorResponse
 }
@@ -14,6 +15,7 @@ export const initializeReportState = (): ReportState => {
   return {
     loading: false,
     reports: null,
+    report: null,
     isLogged: false,
     error: null
   }
