@@ -22,7 +22,7 @@ export class ReportsComponent implements OnInit {
   dataSubscription: Subscription;
   
 
-  displayedColumns: string[] = ['id', 'rapName','rapDesc', 'star'];
+  displayedColumns: string[] = ['id', 'rapName','rapDesc','rapSql', 'star'];
   dataSource = new MatTableDataSource<Report>();
   currentOpReports: Report[];
   loading: boolean;
@@ -93,21 +93,23 @@ export class ReportsComponent implements OnInit {
 
   }
 
-  ngOnDestroy(): void {
-    if (this.dataSubscription) {
-      this.dataSubscription.unsubscribe();
-    }
-  }
-
-  addItem(reportName: string) {
-    let newReport: Report = { id:1, rapName: reportName, rapDesc: reportName, rapOpId: 123};
-    //this.dataSource.data.push(rep);
+  addItem(reportName: string, rapDesc: string, repSql: string) {
+    let newReport: Report = { id: null, rapName: reportName, rapDesc: rapDesc, rapOpId: null, rapSql: repSql};
     this.store.dispatch(ReportsAction.AddNewReport({payload: {isLoading: true, newReport: newReport}})   );
   }
 
   deleteItem(reportId: number) {
     this.store.dispatch(ReportsAction.DeleteReport({payload: {isLoading: true, reportId: reportId}})   );
   }
+
+  ngOnDestroy(): void {
+    if (this.dataSubscription) {
+      this.dataSubscription.unsubscribe();
+    }
+  }
+
+
+
 
   subscribe() {
     //this.customObservable.subscribe( data => {console.log(data) });

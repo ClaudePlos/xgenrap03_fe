@@ -4,4 +4,5 @@ export interface Report {
     rapName: String;
     rapOpId: Number;
     rapDesc: String;
+    rapSql: String;
 }

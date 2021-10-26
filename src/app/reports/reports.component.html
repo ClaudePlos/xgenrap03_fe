@@ -16,8 +16,12 @@
 
     <div class="demo-button-container">
       <label>Nazwa raportu: </label>
-      <input type="text" id="item-input" #newItem>
-      <button mat-raised-button (click)="addItem(newItem.value)" class="demo-button">
+      <input type="text" id="item-input" #newName>
+      <label>Opis: </label>
+      <input type="text" id="item-input" #newDesc>
+      <label>Sql: </label>
+      <input type="text" id="item-input" #newSql>
+      <button mat-raised-button (click)="addItem(newName.value, newDesc.value, newSql.value)" class="demo-button">
         Dodaj Raport
       </button>
     </div>
@@ -40,14 +44,19 @@
                     </ng-container>
 
                     <ng-container matColumnDef="rapName">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header>rapName</th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                         <td mat-cell *matCellDef="let report">{{report.rapName}}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="rapDesc">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header>rapDesc</th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Desc</th>
                         <td mat-cell *matCellDef="let report">{{report.rapDesc}}</td>
                     </ng-container>
+
+                    <ng-container matColumnDef="rapSql">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sql</th>
+                      <td mat-cell *matCellDef="let report">{{report.rapSql}}</td>
+                  </ng-container>
 
                     <ng-container matColumnDef="star">
                       <th mat-header-cell *matHeaderCellDef>Opcje</th>

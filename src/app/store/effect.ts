@@ -36,7 +36,7 @@ export class ReportEffects {
             this.action$.pipe(
             ofType(ReportsAction.AddNewReport),
             mergeMap(action =>
-                this.service.addNewReport(action.payload.newReport.rapName).pipe(
+                this.service.addNewReport(action.payload.newReport).pipe(
                 map((data: GetReportsResponse) => {
                     return ReportsAction.AddNewReportSuccess({payload: {isLoading: false, reports: data.body}});
                 }),
