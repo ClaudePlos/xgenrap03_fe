@@ -1,0 +1,35 @@
+
+<div>
+
+
+  <div
+    class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Rekeep</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a *ngIf="this.authService.isLoggedIn" class="p-2 text-dark" routerLinkActive="active" routerLink="/reports">Raporty</a>
+      <a *ngIf="this.authService.isLoggedIn" class="p-2 text-dark" routerLinkActive="active" routerLink="/user-profile/:id">Profil</a>
+      <a *ngIf="!this.authService.isLoggedIn" class="p-2 text-dark" routerLinkActive="active" routerLink="/log-in">Signin</a>
+    </nav>
+    <!-- <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-primary" routerLinkActive="active"
+      routerLinkActive="active" routerLink="/sign-up">Sign up</a> -->
+    <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
+  </div>
+
+<br><br><br>
+
+  <div>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="courses" routerLinkActive="active">List Courses</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="create-course" routerLinkActive="active">Create Course</a>
+        </li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 2px;">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

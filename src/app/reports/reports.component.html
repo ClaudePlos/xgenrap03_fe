@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="row">
+        <div class="inner-main">
+            <h2 class="mb-2">Twoje raporty: </h2>
+            
+            <!-- <ul class="reports">
+                <li *ngFor="let report of currentOpReports"
+                    [class.selected]="report === selectedReport"
+                    (click)="onSelect(report)">
+                    <span class="badge">{{report.rapName}}</span> {{report.id}}
+                </li>
+            </ul> -->
+            
+        </div>
+    </div>
+
+    <div class="demo-button-container">
+      <label>Nazwa raportu: </label>
+      <input type="text" id="item-input" #newItem>
+      <button mat-raised-button (click)="addItem(newItem.value)" class="demo-button">
+        Dodaj Raport
+      </button>
+    </div>
+
+   
+    
+    <br>
+
+
+    <div *ngIf="!loading">
+        <div class="example-container mat-elevation-z8">
+          <div class="example-table-container">
+
+                <table mat-table aria-describedby="mydesc" [dataSource]="dataSource" matSort>
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+                        <td mat-cell *matCellDef="let report" class='m-card-title' data-label='ID'>{{report.id}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="rapName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>rapName</th>
+                        <td mat-cell *matCellDef="let report">{{report.rapName}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="rapDesc">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>rapDesc</th>
+                        <td mat-cell *matCellDef="let report">{{report.rapDesc}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="star">
+                      <th mat-header-cell *matHeaderCellDef>Opcje</th>
+                      <td mat-cell *matCellDef="let report">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{report: report}">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                      </td>
+                
+
+                    </ng-container>
+                    
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+                </table>
+
+          </div>
+        </div>
+
+        <div *ngIf="nthFound">Brak wyników wyszukiwania</div>
+
+    </div>
+
+    <br>
+
+    <div class="demo-button-container">
+      <button mat-raised-button (click)="subscribe()" class="demo-button">
+        Zasubscrybuj bloga
+      </button>
+      <button mat-raised-button (click)="unsubscribe()" class="demo-button">
+        Odwołaj subskrypcje
+      </button>
+      <label>Temat bloga: </label>
+      <input type="text" id="item-input" #newBlogSubject>
+      <button mat-raised-button (click)="add(newBlogSubject.value)" class="demo-button">
+        +
+      </button>
+    </div>
+
+
+
+    <mat-menu #menu="matMenu">
+        <ng-template matMenuContent let-report="report">
+          <button mat-menu-item [routerLink]="[report.id, 'details']">
+            <mat-icon>read_more</mat-icon>
+            <span>Pokaż szczegóły</span>
+          </button>
+          <!-- <button mat-menu-item [routerLink]="[report.id, 'adddetails']" *ngIf="showElement('ROLE_TRADER')">
+            <mat-icon>edit</mat-icon>
+            <span>Przejdź do edycji</span>
+          </button>
+          <button mat-menu-item (click)="addItem(report.id)">
+            <mat-icon>redo</mat-icon>
+            <span>Przekaż pozycję</span>
+          </button> -->
+            <button mat-menu-item (click)="deleteItem(report.id)">
+              <mat-icon>delete</mat-icon>
+              <span>Usuń {{report.rapName}}.</span>
+            </button>
+        </ng-template>
+      </mat-menu>
+
+
+</div>

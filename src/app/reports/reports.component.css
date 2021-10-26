@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+  }
+
+.container {
+    max-width: none;
+    padding: 50px;
+    padding-top: 50px;
+  }  
+
+.inner-main {
+    padding-top: 50px;
+    width: 100%;
+}  
