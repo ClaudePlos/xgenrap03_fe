@@ -11,15 +11,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReportsComponent } from './reports/reports.component';
-import { ReportsDetailsComponent } from './reports-details/reports-details.component';
+import { ReportsComponent } from './reports/reports-list/reports.component';
+import { ReportsDetailsComponent } from './reports/reports-details/reports-details.component';
 
 import { MatTableModule, MatMenuModule, MatIconModule, MatDialogModule, MatInputModule, MatSortModule } from '@angular/material';
 
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
-import {ReportReducer} from "./store/reducer";
-import {ReportEffects} from "./store/effect";
+import {ReportReducer} from "./reports/store/reducer";
+import {ReportEffects} from "./reports/store/effect";
 
 
 @NgModule({

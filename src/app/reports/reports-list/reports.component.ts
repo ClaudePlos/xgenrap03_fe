@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ReportsService } from '../services/reports.service';
-import { AuthService } from '../shared/auth.service';
-import { Report } from '../models/report.model';
+import { ReportsService } from '../../services/reports.service';
+import { AuthService } from '../../shared/auth.service';
+import { Report } from '../../models/report.model';
 import { MatTableDataSource, MatSort } from "@angular/material";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {map} from "rxjs/operators";
@@ -9,7 +9,7 @@ import {Observable, Subscription, Subject} from "rxjs";
 import {ReportState} from "../store/state";
 import {select, Store} from "@ngrx/store";
 import * as ReportsAction from "../store/action";
-import { User } from "../shared/user"
+import { User } from "../../shared/user"
 
 @Component({
   selector: 'app-reports',

@@ -1,12 +1,12 @@
 import {Injectable} from "@angular/core";
-import {ReportsService} from "../services/reports.service";
+import {ReportsService} from "../../services/reports.service";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Action} from "@ngrx/store";
 import {Observable, of} from "rxjs";
 import * as ReportsAction from './action'
 import {Router} from "@angular/router";
 import {catchError, map, mergeMap, tap} from "rxjs/operators";
-import { GetReportsResponse } from "../services/response/_index";
+import { GetReportsResponse } from "../../services/response/_index";
 
 
 @Injectable()

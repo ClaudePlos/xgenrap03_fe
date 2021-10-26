@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { ReportsComponent } from './reports/reports.component';
-import { ReportsDetailsComponent } from './reports-details/reports-details.component';
+import { ReportsComponent } from './reports/reports-list/reports.component';
+import { ReportsDetailsComponent } from './reports/reports-details/reports-details.component';
 
 import { AuthGuard } from "./shared/auth.guard";
 

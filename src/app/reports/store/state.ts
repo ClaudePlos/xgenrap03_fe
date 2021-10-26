@@ -1,4 +1,4 @@
-import {Report} from "../models/report.model";
+import {Report} from "../../models/report.model";
 import {createFeatureSelector, createSelector, State} from "@ngrx/store";
 import {HttpErrorResponse} from "@angular/common/http";
 

@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {Report} from "../models/report.model"
+import {Report} from "../../models/report.model"
 
 //
   export const GetReportsAssignedToUser = createAction(
