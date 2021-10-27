@@ -6,7 +6,7 @@ import {Observable, of} from "rxjs";
 import * as ReportsAction from './action'
 import {Router} from "@angular/router";
 import {catchError, map, mergeMap, tap} from "rxjs/operators";
-import { GetReportsResponse, GetReportResponse } from "../../services/response/_index";
+import { GetReportsResponse, GetReportResponse, SaveReportResponse } from "../../services/response/_index";
 
 
 @Injectable()
@@ -42,6 +42,22 @@ export class ReportEffects {
                 }),
                 catchError((data: Error) => {
                     return of(ReportsAction.AddNewReportFailure({payload: {isLoading: true}}))
+                })
+                )
+            )
+            )
+        );
+
+        SaveReport$: Observable<Action> = createEffect(() =>
+            this.action$.pipe(
+            ofType(ReportsAction.SaveReport),
+            mergeMap(action =>
+                this.service.saveReport(action.payload.report).pipe(
+                map((data: SaveReportResponse) => {
+                    return ReportsAction.SaveReportSuccess({payload: {isLoading: false, report: data.body}});
+                }),
+                catchError((data: Error) => {
+                    return of(ReportsAction.SaveReportFailure({payload: {isLoading: true}}))
                 })
                 )
             )

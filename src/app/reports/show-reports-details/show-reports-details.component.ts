@@ -41,6 +41,11 @@ export class ShowReportsDetailsComponent implements OnInit {
         console.log(params.get('id'));
         this.store.dispatch(ReportsAction.GetReport({payload: {isLoading: true, id: params.get('id')}}));
   })};
+
+  onChange(newSql: string): void {
+    this.report.rapSql = newSql;
+    this.store.dispatch(ReportsAction.SaveReport({payload: {isLoading: true, report: this.report}}));
+  }
   
 
 }

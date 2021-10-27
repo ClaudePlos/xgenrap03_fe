@@ -65,3 +65,19 @@ import {Report} from "../../models/report.model"
     'GetReportFailure',
     props<{ payload: { isLoading: boolean, report: Report } }>()
   );
+
+  // SaveReport
+  export const SaveReport = createAction(
+    'SaveReport',
+    props<{ payload: { isLoading: boolean, report: Report } }>()
+  );
+
+  export const SaveReportSuccess = createAction(
+    'SaveReportSuccess',
+    props<{ payload: { isLoading: boolean, report:  Report } }>()
+  );
+
+  export const SaveReportFailure = createAction(
+    'SaveReportFailure',
+    props<{ payload: { isLoading: boolean } }>()
+  );

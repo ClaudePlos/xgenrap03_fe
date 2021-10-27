@@ -32,6 +32,17 @@ const reducer = createReducer(
     }),
 
     //
+    on(ReportsAction.SaveReport, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading};
+      }),
+    on(ReportsAction.SaveReportSuccess, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading, report: payload.report };
+    }),
+    on(ReportsAction.SaveReportFailure, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading};
+    }),
+
+    //
     on(ReportsAction.DeleteReport, (state: ReportState, {payload}) => {
         return {...state, loading: payload.isLoading};
     }),

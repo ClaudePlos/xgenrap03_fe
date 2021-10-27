@@ -5,24 +5,28 @@
                         [location]="'Podgląd'"></app-breadcrumb>
       </div> -->
 
-    <table>
-        <caption>Przetarg</caption>
-        <thead>
-        <tr>
-          <th scope="col">NUMER</th>
-          <th scope="col">NAME</th>
-          <th scope="col">DESC</th>
-          <th scope="col">SQL</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td data-label="NUMER">{{report.id}}</td>
-          <td data-label="NAME">{{report.rapName}}</td>
-          <td data-label="DESC">{{report.rapDesc}}</td>
-          <td data-label="SQL">{{report.rapSql}}</td>
-        </tr>
-        </tbody>
-      </table>
+  
+      <p><b>Raport:</b>{{report.id}} {{report.rapName}}</p>
+      <p>Opis: {{report.rapDesc}}</p>
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 900px;">
+        <mat-label>Sql</mat-label>
+        <textarea matInput #newSql value="{{report.rapSql}}"></textarea>
+      </mat-form-field>
+
+      <div>
+        <button class="btn btn-warning" (click)="deleteItem(report.id)" style="margin: 2px;">
+          <mat-icon>airplay</mat-icon>
+          <span>Run</span>
+        </button>
+        <button class="btn btn-primary" (click)="onChange(newSql.value)" style="margin: 2px;">
+          <mat-icon>airplay</mat-icon>
+          <span>Zapisz</span>
+        </button>
+      </div>
+
 
 </div>
+
+
+
