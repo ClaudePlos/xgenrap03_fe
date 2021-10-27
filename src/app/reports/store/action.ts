@@ -81,3 +81,19 @@ import {Report} from "../../models/report.model"
     'SaveReportFailure',
     props<{ payload: { isLoading: boolean } }>()
   );
+
+  // RunSql
+  export const RunSql = createAction(
+    'RunSql',
+    props<{ payload: { isLoading: boolean, sqlQuery: string } }>()
+  );
+
+  export const RunSqlSuccess = createAction(
+    'RunSqlSuccess',
+    props<{ payload: { isLoading: boolean, jsonData:  JSON } }>()
+  );
+
+  export const RunSqlFailure = createAction(
+    'RunSqlFailure',
+    props<{ payload: { isLoading: boolean } }>()
+  );

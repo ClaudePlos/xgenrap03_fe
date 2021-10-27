@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../shared/user';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { GetReportsResponse, GetReportResponse, SaveReportResponse } from "./response/_index";
+import { GetReportsResponse, GetReportResponse, SaveReportResponse, RunSqlResponse } from "./response/_index";
 import { Report } from '../models/report.model';
 
 @Injectable({
@@ -56,6 +56,11 @@ export class ReportsService {
     deleteReport(reportId): Observable<GetReportsResponse> {
       const url = `${this.endpoint}/reports/delete//${reportId}`;
       return this.httpClient.get<GetReportsResponse>(url);
+    }
+
+    runSql(sqlQuery: string): Observable<RunSqlResponse> {
+      const url = `${this.endpoint}/reports/run-sql`;
+      return this.httpClient.post<RunSqlResponse>(url, sqlQuery);
     }
 
     

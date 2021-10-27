@@ -65,6 +65,17 @@ const reducer = createReducer(
     return {...state, loading: payload.isLoading};
     }),
 
+    //
+    on(ReportsAction.RunSql, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading};
+      }),
+    on(ReportsAction.RunSqlSuccess, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading, jsonData: payload.jsonData };
+    }),
+    on(ReportsAction.RunSqlFailure, (state: ReportState, {payload}) => {
+        return {...state, loading: payload.isLoading};
+    }),
+
 );
 
 export function ReportReducer(state: ReportState | undefined, action: Action): ReportState {

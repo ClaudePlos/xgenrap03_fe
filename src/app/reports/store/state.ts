@@ -8,7 +8,8 @@ export interface ReportState {
     reports: Report[],
     report: Report
     isLogged: boolean,
-    error: HttpErrorResponse
+    error: HttpErrorResponse,
+    jsonData: JSON
 }
 
 export const initializeReportState = (): ReportState => {
@@ -17,7 +18,8 @@ export const initializeReportState = (): ReportState => {
     reports: null,
     report: null,
     isLogged: false,
-    error: null
+    error: null,
+    jsonData: null
   }
 }
 

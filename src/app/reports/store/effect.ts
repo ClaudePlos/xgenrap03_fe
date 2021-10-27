@@ -6,7 +6,7 @@ import {Observable, of} from "rxjs";
 import * as ReportsAction from './action'
 import {Router} from "@angular/router";
 import {catchError, map, mergeMap, tap} from "rxjs/operators";
-import { GetReportsResponse, GetReportResponse, SaveReportResponse } from "../../services/response/_index";
+import { GetReportsResponse, GetReportResponse, SaveReportResponse, RunSqlResponse } from "../../services/response/_index";
 
 
 @Injectable()
@@ -90,6 +90,22 @@ export class ReportEffects {
                 }),
                 catchError((data: Error) => {
                     return of(ReportsAction.GetReportFailure({payload: {isLoading: true, report: null}}))
+                })
+                )
+            )
+            )
+        );
+
+        RunSql$: Observable<Action> = createEffect(() =>
+            this.action$.pipe(
+            ofType(ReportsAction.RunSql),
+            mergeMap(action =>
+                this.service.runSql(action.payload.sqlQuery).pipe(
+                map((data: RunSqlResponse) => {
+                    return ReportsAction.RunSqlSuccess({payload: {isLoading: false, jsonData: data.body }});
+                }),
+                catchError((data: Error) => {
+                    return of(ReportsAction.RunSqlFailure({payload: {isLoading: true}}))
                 })
                 )
             )

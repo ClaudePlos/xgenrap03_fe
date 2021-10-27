@@ -46,6 +46,10 @@ export class ShowReportsDetailsComponent implements OnInit {
     this.report.rapSql = newSql;
     this.store.dispatch(ReportsAction.SaveReport({payload: {isLoading: true, report: this.report}}));
   }
+
+  runSql(newSql: string): void {
+    this.store.dispatch(ReportsAction.RunSql({payload: {isLoading: true, sqlQuery: newSql}}));
+  }
   
 
 }
