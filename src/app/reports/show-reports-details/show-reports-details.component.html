@@ -16,15 +16,68 @@
 
       <div>
         <button class="btn btn-warning" (click)="runSql(newSql.value)" style="margin: 2px;">
-          <mat-icon>airplay</mat-icon>
           <span>Run</span>
         </button>
         <button class="btn btn-primary" (click)="onChange(newSql.value)" style="margin: 2px;">
-          <mat-icon>airplay</mat-icon>
           <span>Zapisz</span>
+        </button>
+        <button class="btn btn-outline-primary" (click)="test()" style="margin: 2px;">
+          <span>TEST</span>
         </button>
       </div>
 
+      <!-- <p *ngIf="this.jsonData">{{jsonData}}</p>
+
+
+      <p *ngIf="this.jsonData?.cellName">{{ jsonData }}</p>
+      <p *ngIf="this.jsonData?.jsonData">{{ jsonData.jsonData }}</p> -->
+
+      <!-- <table *ngIf="jsonData">
+        <tr>
+          <th>ID</th>
+      </tr>
+
+        <tr *ngFor="let jsonData of jsonData">
+          <td>{{jsonData.ID}}</td>
+      </tr>
+
+      </table> -->
+<!-- 
+      <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+
+                <table mat-table aria-describedby="mydesc" [dataSource]="dataSource" matSort>
+
+                      <ng-container matColumnDef="rap_id">
+                        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.rap_id}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="rap_name">
+                        <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.rap_name}} </mat-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </table>
+          </div>
+        </div> -->
+          
+<div>
+  <table>
+    <tr>
+      <td *ngFor= "let key of keys">{{key}}</td>
+    </tr>
+    <tr *ngFor="let item of dataSource.data">
+      <ng-container *ngFor = "let key of keys">
+        <td>{{item[key]}}</td>
+      </ng-container>
+    </tr>
+  </table>
+</div>
+        
+        
 
 </div>
 

@@ -102,7 +102,7 @@ export class ReportEffects {
             mergeMap(action =>
                 this.service.runSql(action.payload.sqlQuery).pipe(
                 map((data: RunSqlResponse) => {
-                    return ReportsAction.RunSqlSuccess({payload: {isLoading: false, jsonData: data.body }});
+                    return ReportsAction.RunSqlSuccess({payload: {isLoading: false, jsonData: JSON.parse(data.body) }});
                 }),
                 catchError((data: Error) => {
                     return of(ReportsAction.RunSqlFailure({payload: {isLoading: true}}))

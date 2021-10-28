@@ -1,4 +1,5 @@
 import {Report} from "../../models/report.model";
+import { ReportData } from 'src/app/models/reportData.model';
 import {createFeatureSelector, createSelector, State} from "@ngrx/store";
 import {HttpErrorResponse} from "@angular/common/http";
 
@@ -9,7 +10,7 @@ export interface ReportState {
     report: Report
     isLogged: boolean,
     error: HttpErrorResponse,
-    jsonData: JSON
+    jsonData: []
 }
 
 export const initializeReportState = (): ReportState => {
@@ -19,7 +20,7 @@ export const initializeReportState = (): ReportState => {
     report: null,
     isLogged: false,
     error: null,
-    jsonData: null
+    jsonData: []
   }
 }
 

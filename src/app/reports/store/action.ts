@@ -1,5 +1,6 @@
 import {createAction, props} from '@ngrx/store';
-import {Report} from "../../models/report.model"
+import { Report } from "../../models/report.model"
+import { ReportData } from 'src/app/models/reportData.model';
 
 // GetReportsAssignedToUser todo
   export const GetReportsAssignedToUser = createAction(
@@ -90,7 +91,7 @@ import {Report} from "../../models/report.model"
 
   export const RunSqlSuccess = createAction(
     'RunSqlSuccess',
-    props<{ payload: { isLoading: boolean, jsonData:  JSON } }>()
+    props<{ payload: { isLoading: boolean, jsonData:  [] } }>()
   );
 
   export const RunSqlFailure = createAction(

@@ -136,6 +136,10 @@ export class ReportsComponent implements OnInit {
     this.subject.next(this.myObj);
   }
 
+  test(){
+    console.log(this.currentOpReports);
+  }
+
   // addItem(tenderId: number): void {
   //   const conf = new MatDialogConfig();
   //   conf.disableClose = true;
