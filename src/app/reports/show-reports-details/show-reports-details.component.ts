@@ -42,9 +42,6 @@ export class ShowReportsDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     public dialog: MatDialog) {
       this.state = store.pipe(select('reportStore'));
-
-      
-
      }
 
        
@@ -95,27 +92,27 @@ export class ShowReportsDetailsComponent implements OnInit {
 }
 
 
-export interface Element {
-  rap_id: number;
-  rap_name: string;
-  rap_desc: string;
-} 
+// export interface Element {
+//   rap_id: number;
+//   rap_name: string;
+//   rap_desc: string;
+// } 
 
 
-const ELEMENT_DATA: Element[] =  [
-  {
-      "rap_id": 1,
-      "rap_name": "RAP01",
-      "rap_desc": "Raport pocz"
-  },
-  {
-      "rap_id": 2,
-      "rap_name": "Rap Kont",
-      "rap_desc": "KOnta"
-  },
-  {
-      "rap_id": 3,
-      "rap_name": "RAP03",
-      "rap_desc": "Test"
-  }
-];
+// const ELEMENT_DATA: Element[] =  [
+//   {
+//       "rap_id": 1,
+//       "rap_name": "RAP01",
+//       "rap_desc": "Raport pocz"
+//   },
+//   {
+//       "rap_id": 2,
+//       "rap_name": "Rap Kont",
+//       "rap_desc": "KOnta"
+//   },
+//   {
+//       "rap_id": 3,
+//       "rap_name": "RAP03",
+//       "rap_desc": "Test"
+//   }
+// ];
