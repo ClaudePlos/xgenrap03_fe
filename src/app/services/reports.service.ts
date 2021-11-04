@@ -6,13 +6,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { GetReportsResponse, GetReportResponse, SaveReportResponse, RunSqlResponse } from "./response/_index";
 import { Report } from '../models/report.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
   })
 
 export class ReportsService {
-    endpoint: string = 'http://localhost:8080/api';
+    endpoint: string = environment.taskBaseUrl + '/api';
     headers = new HttpHeaders().set('Content-Type', 'application/json');
     currentUser = {};
   
