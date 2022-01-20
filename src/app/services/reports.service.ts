@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { GetReportsResponse, GetReportResponse, SaveReportResponse, RunSqlResponse } from "./response/_index";
 import { Report } from '../models/report.model';
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
